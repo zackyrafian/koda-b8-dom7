@@ -1,0 +1,37 @@
+body {
+  background-color: #F8F9FA;
+}
+
+.grid-container {
+  display: grid; gap:8px; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
+  border-radius: 12px;
+  background: white;
+  overflow: hidden;
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+}
+
+.input-bar {
+  width: 100%;
+  height: 24px;
+  border: 1px solid;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
