@@ -3,7 +3,14 @@ const search = document.getElementById("search");
 let list = [];
 
 const render = (data) => {
+  const fragment = document.createDocumentFragment();
   container.innerHTML = "";
+
+  if (data.length === 0) {
+    container.innerHTML = `<p class="empty-msg">No characters found.</p>`;
+    return;
+  }
+
   data.forEach((item) => {
     const card = document.createElement("article");
     const content = document.createElement("div");
@@ -21,18 +28,20 @@ const render = (data) => {
     card.appendChild(img);
     card.appendChild(content);
 
-    container.appendChild(card);
+    fragment.appendChild(card);
   });
+  container.appendChild(fragment);
 };
 
 const fetchData = async () => {
   try {
     const res = await fetch("https://rickandmortyapi.com/api/character");
+    if (!res.ok) throw new Error("Failed to fetch data from server")
     const data = await res.json();
     list = data.results;
     render(list);
   } catch (error) {
-    console.log(error);
+    console.log("error fetching data: ", error);
   }
 };
 
