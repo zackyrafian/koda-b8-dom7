@@ -5,14 +5,15 @@ let list = [];
 const render = (data) => {
   container.innerHTML = "";
   data.forEach((item) => {
-    const card = document.createElement("div");
+    const card = document.createElement("article");
     const content = document.createElement("div");
-    const name = document.createElement("span");
+    const name = document.createElement("h4");
     const img = document.createElement("img");
 
     card.classList.add("card");
     img.classList.add("card-image");
     img.src = item.image;
+    img.alt = item.name;
     content.classList.add("card-content");
     name.textContent = item.name;
 
